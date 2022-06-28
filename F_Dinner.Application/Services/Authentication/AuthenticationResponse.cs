@@ -2,7 +2,7 @@ namespace F_Dinner.Application.Services.Authentication;
 
 public class AuthenticationResponse
 {
-    public Guid Id { get; set; }
+    public Guid userId { get; set; }
 
     public string FirstName { get; set; }
 
@@ -16,7 +16,7 @@ public class AuthenticationResponse
 
     public AuthenticationResponse(Guid ID,string FIRST,string LAST,string EMAIL,string TOKEN,string PASSWORD)
     {
-        Id=ID;
+        userId=ID;
         FirstName=FIRST;
         LastName=LAST;
         Email=EMAIL;

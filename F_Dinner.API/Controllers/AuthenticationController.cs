@@ -16,7 +16,7 @@ public class AuthenticationController : ControllerBase
     public IActionResult Login( LoginRequest request )
     {
         var authresult = _authenticationService.Login(request.Email, request.Password);
-        var response = new RegistrationResponse(authresult.Id,
+        var response = new RegistrationResponse(authresult.userId,
                                                   authresult.FirstName,
                                                   authresult.LastName,
                                                   authresult.Email,
@@ -32,7 +32,7 @@ public class AuthenticationController : ControllerBase
                                                          request.Email,
                                                          request.LastName,
                                                          request.Password);
-        var response = new RegistrationResponse(authresult.Id,
+        var response = new RegistrationResponse(authresult.userId,
                                                   authresult.FirstName,
                                                   authresult.LastName,
                                                   authresult.Email,
