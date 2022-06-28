@@ -1,9 +1,11 @@
-using F_Dinner.Application.Services.Authentication;
-
+using F_Dinner.Application;
+using F_Dinner.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddScoped<IAuthenticationService,AuthenticationService>();
-builder.Services.AddControllers();
 
+builder.Services.AddControllers();
+builder.Services.
+    AddApplication()
+    .AddInfrastructure();
 var app = builder.Build();
 
 app.UseHttpsRedirection();
