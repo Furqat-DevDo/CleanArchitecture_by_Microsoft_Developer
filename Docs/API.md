@@ -31,3 +31,26 @@ Post {{host}}/auth/register
         "token": "string"
     }
     ```
+
+## Auth
+### Login
+``` js
+Post {{host}}/auth/login
+```
+### Login_Request
+    ``` json
+    {
+        "email": "string",
+        "password": "string"
+    }
+    ```
+### Login_Response
+    ``` json
+    {
+        "id": "string",
+        "firstname": "string",
+        "lastname": "string",
+        "email": "string",
+        "token": "string"
+    }
+    ```
