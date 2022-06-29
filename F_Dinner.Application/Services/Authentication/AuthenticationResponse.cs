@@ -1,3 +1,5 @@
+using F_Dinner.Domain.Entities;
+
 namespace F_Dinner.Application.Services.Authentication;
 
 public class AuthenticationResponse
@@ -14,13 +16,13 @@ public class AuthenticationResponse
 
     public string  Password { get; set; }
 
-    public AuthenticationResponse(Guid ID,string FIRST,string LAST,string EMAIL,string TOKEN,string PASSWORD)
+    public AuthenticationResponse(User user,string token)
     {
-        userId=ID;
-        FirstName=FIRST;
-        LastName=LAST;
-        Email=EMAIL;
-        Token=TOKEN;
-        Password=PASSWORD;
+        userId = user.Id;
+        FirstName = user.Firstname;
+        LastName = user.Lastname;
+        Email = user.Email;
+        Password =user.Password;
+        Token = token;
     }
 }

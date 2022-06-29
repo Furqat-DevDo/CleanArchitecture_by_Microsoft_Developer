@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using F_Dinner.Application.Common.Interfaces.Authentication;
 using F_Dinner.Application.Common.Interfaces.Services;
+using F_Dinner.Domain.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -20,16 +21,16 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         _jwtSettings = jwtSettingsoptions.Value;
     }
 
-    public string GenerateToken(Guid userId, string Firstname, string Lastname)
+    public string GenerateToken(User user)
     {
         var signinCredentials = new SigningCredentials(
             new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_jwtSettings.Secret)),
             SecurityAlgorithms.HmacSha256);
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
-            new Claim(JwtRegisteredClaimNames.GivenName, Firstname),
-            new Claim(JwtRegisteredClaimNames.FamilyName, Lastname),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.GivenName, user.Firstname),
+            new Claim(JwtRegisteredClaimNames.FamilyName, user.Lastname),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
