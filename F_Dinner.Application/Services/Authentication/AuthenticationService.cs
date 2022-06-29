@@ -29,9 +29,10 @@ public class AuthenticationService : IAuthenticationService
             Email = email,
             Password = password
         };
-        _userrepository.Add(user);
+        
         //Create JWT Token
         var token = _jwtTokenGenerator.GenerateToken(user);
+        _userrepository.Add(user);
         return new AuthenticationResponse(
             user,
             token);
