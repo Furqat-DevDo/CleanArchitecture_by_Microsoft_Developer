@@ -2,14 +2,14 @@ namespace F_Dinner.Contract.Authentication;
 
 public class RegistrationResponse
 {
-    public RegistrationResponse(Guid id, string firstName, string lastName, string email, string token,string password)
+    public RegistrationResponse(Guid id, string firstName, string lastName, string email,string password,string token)
     {
         Id = id;
         FirstName = firstName;
         LastName = lastName;
         Email = email;
+        Password = password; 
         Token = token;
-        Password = password;
     }
 
     public Guid Id { get; set; }
